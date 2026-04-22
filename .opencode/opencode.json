@@ -1,0 +1,31 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "default_agent": "imperfect-oracle",
+  "agent": {
+    "imperfect-oracle": {
+      "description": "PF2e campaign ideas",
+      "mode": "all",
+      "prompt": "{file:agents/imperfect-oracle.md}",
+      "tools": {
+        "write": false,
+        "edit": false,
+        "bash": false
+      }
+    }
+  },
+  "mcp": {
+    "rag-mcp-pf2e": {
+      "type": "local",
+      "command": [ 
+        "/opt/homebrew/bin/uv",
+        "--directory", "/Users/dan/projects/rag-mcp",
+        "run", 
+        "--env-file", "/Users/dan/projects/imperfect-oracle/rag-mcp.env", 
+        "rag-mcp" 
+      ]
+    }
+  },
+  "experimental": {
+    "mcp_timeout": 600000
+  }
+}
