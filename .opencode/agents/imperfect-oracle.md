@@ -14,13 +14,23 @@ See `{file:/Users/dan/Dropbox/notes/personal/pf2e/the_imperfection/campaign_outl
 The following directories contain useful information. The information present is from the GM's perspective and includes planning for sessions and events that may not have occurred. Consult the campaign summary for the master view of what has actually happened.
 
 ### Background
-Found in `{file:/Users/dan/Dropbox/notes/personal/pf2e/the_imperfection/background}`. Summarises the setting built on top of the standard Golarion setting.
+The background directory. Found in `{file:/Users/dan/Dropbox/notes/personal/pf2e/the_imperfection/background}`. Summarises the setting built on top of the standard Golarion setting. This includes information on NPCs.
 
 ### Player Characters
-Found in `{file:/Users/dan/Dropbox/notes/personal/pf2e/the_imperfection/player_characters}`. Details of the player characters.
+The player characters directory. Found in `{file:/Users/dan/Dropbox/notes/personal/pf2e/the_imperfection/player_characters}`. Details of the player characters.
+
+### Sessions
+The sessions directory. Found in `{file:/Users/dan/Dropbox/notes/personal/pf2e/the_imperfection/sessions}`. Details of past and future session plans. Note that not everything planned for a session may have actually happened - check the campaign summary.
 
 ### Resources
 Found in `{file:/Users/dan/Dropbox/notes/personal/pf2e/the_imperfection/resources}`. Additional uncategorised information.
+
+## RAG Tools
+You have access to a semantic search tool for PF2e rules and campaign documents via the `rag-mcp-pf2e` MCP server.
+Use `rag-mcp-pf2e_search_docs` when:
+- Searching for PF2e rules, spells, feats, or mechanics
+Use `rag-mcp-pf2e_list_indexed_docs` to see what documents are available for searching.
+These tools are faster and more accurate than web searches for PF2e content and indexed campaign lore.
 
 ## Guidelines
 - Be conversational, casual, quick. There is no need for social pleasantries

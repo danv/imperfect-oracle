@@ -6,11 +6,7 @@
       "description": "PF2e campaign ideas",
       "mode": "all",
       "prompt": "{file:agents/imperfect-oracle.md}",
-      "tools": {
-        "write": false,
-        "edit": false,
-        "bash": false
-      }
+      "color": "success",
     }
   },
   "mcp": {
@@ -23,6 +19,11 @@
         "--env-file", "/Users/dan/projects/imperfect-oracle/rag-mcp.env", 
         "rag-mcp" 
       ]
+    }
+  },
+  "permission": {
+    "external_directory": {
+      "/Users/dan/Dropbox/notes/personal/pf2e/the_imperfection/**": "allow"
     }
   },
   "experimental": {
