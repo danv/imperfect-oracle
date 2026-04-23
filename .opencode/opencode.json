@@ -24,6 +24,9 @@
   "permission": {
     "external_directory": {
       "/Users/dan/Dropbox/notes/personal/pf2e/the_imperfection/**": "allow"
+    },
+    "skill": {
+      "rules-search": "allow"
     }
   },
   "experimental": {
