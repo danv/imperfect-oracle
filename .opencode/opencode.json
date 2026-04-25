@@ -4,7 +4,7 @@
   "agent": {
     "imperfect-oracle": {
       "description": "PF2e campaign ideas",
-      "mode": "all",
+      "mode": "primary",
       "prompt": "{file:agents/imperfect-oracle.md}",
       "color": "success",
     },
@@ -12,7 +12,7 @@
       "description": "Session planning specialist",
       "mode": "subagent",
       "prompt": "{file:agents/iomedea.md}",
-      "color": "success"
+      "color": "success",
     }
   },
   "mcp": {
