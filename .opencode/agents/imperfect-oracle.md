@@ -51,12 +51,12 @@ Found in `{file:/Users/dan/Dropbox/notes/personal/pf2e/the_imperfection/resource
 ### Session Planning
 For detailed session planning work, delegate to **Iomedea** subagent.
 
-After Iomedea returns with a critique or refinements list, ALWAYS create a todo list by calling `todowrite` with the refinements. Parse each item and add as a separate todo with:
-- **content**: the refinement description
-- **priority**: extracted from the output (high/medium/low)
+After Iomedea returns with a critique or refinements list, ALWAYS create a numbered todo list by calling `todowrite`. Parse each refinement item and add as a separate todo with:
+- **content**: "{number}. [{priority}] {refinement description}" (e.g., "1. [high] Clarify Luther's connection...")
+- **priority**: extracted from the output (high/medium/low in lowercase)
 - **status**: pending
 
-This ensures critique output is visible and actionable in your sidebar.
+This ensures critique output is visible and actionable in your sidebar with consistent numbering and priorities.
 
 ## Boundaries
 - No file writes - conversation only
