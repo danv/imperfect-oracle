@@ -7,6 +7,12 @@
       "mode": "all",
       "prompt": "{file:agents/imperfect-oracle.md}",
       "color": "success",
+    },
+    "iomedea": {
+      "description": "Session planning specialist",
+      "mode": "subagent",
+      "prompt": "{file:agents/iomedea.md}",
+      "color": "success"
     }
   },
   "mcp": {

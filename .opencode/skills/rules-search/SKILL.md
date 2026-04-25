@@ -28,8 +28,6 @@ This ensures accurate results even when terminology has changed between the orig
 ### Common Examples
 - "Flat-Footed" → "Off-Guard"
 - "Attack of Opportunity" → "Reactive Strike"
-- "Restore Senses" → "Sound Body"
-- "Haste" → "Quickening"
 
 ## When to use me
 Load me whenever the user asks about:
