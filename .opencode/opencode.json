@@ -11,8 +11,12 @@
     "iomedea": {
       "description": "Session planning specialist",
       "mode": "subagent",
-      "prompt": "{file:agents/iomedea.md}",
-      "color": "success",
+      "prompt": "{file:agents/iomedea.md}"
+    },
+    "lamashtu": {
+      "description": "Creature and monster design specialist",
+      "mode": "subagent",
+      "prompt": "{file:agents/lamashtu.md}"
     }
   },
   "mcp": {
