@@ -231,6 +231,32 @@ function formatMappingNotice(legacyTerm: string, remasteredTerm: string, wasDete
   return `Note: "${legacyTerm}" was renamed to "${remasteredTerm}" in the PF2e Remaster. Results shown use the remastered term.\n\n`;
 }
 
+// Helper to search AON using Kagi (replaces webfetch.search)
+async function searchAonWithKagi(query: string, ctx: ToolContext, limit: number = 3): Promise<Array<{url: string, content: string}>> {
+  try {
+    const kagiResults: any = await ctx.tools['kagi-search_kagi_search_fetch'].fetch({
+      queries: [`site:2e.aonprd.com ${query}`]
+    });
+    
+    // Transform Kagi response to match webfetch format
+    const formatted: Array<{url: string, content: string}> = [];
+    const results = kagiResults.results || kagiResults || [];
+    
+    for (let i = 0; i < Math.min(limit, results.length); i++) {
+      const r = results[i];
+      formatted.push({
+        url: r.url || '',
+        content: r.snippet || r.title || ''
+      });
+    }
+    
+    return formatted;
+  } catch (error) {
+    console.error('Kagi search failed:', error);
+    return [];
+  }
+}
+
 export async function searchRules(ctx: ToolContext, query: string): Promise<SearchResult[]> {
   const results: SearchResult[] = [];
   
@@ -244,7 +270,7 @@ export async function searchRules(ctx: ToolContext, query: string): Promise<Sear
       limit: 5
     });
     
-    const highRemastered = ragRemastered.filter((r: any) => r.score >= 0.7);
+    const highRemastered = ragRemastered.filter((r: any) => r.score <= 0.5);
     
     if (highRemastered.length > 0) {
       for (const r of highRemastered) {
@@ -252,7 +278,7 @@ export async function searchRules(ctx: ToolContext, query: string): Promise<Sear
           source: 'rulebook',
           citation: r.document,
           content: formatMappingNotice(mapping.legacyTerm!, mapping.remasteredTerm!, mapping.wasDetected) + r.text,
-          confidence: r.score,
+          confidence: 1 - r.score, // Convert distance to confidence
           category: 'rules',
           mappingNotice: {
             legacyTerm: mapping.legacyTerm!,
@@ -270,7 +296,7 @@ export async function searchRules(ctx: ToolContext, query: string): Promise<Sear
       limit: 3
     });
     
-    const highLegacy = ragLegacy.filter((r: any) => r.score >= 0.7);
+    const highLegacy = ragLegacy.filter((r: any) => r.score <= 0.5);
     
     if (highLegacy.length > 0) {
       // Add legacy results with lower priority
@@ -279,7 +305,7 @@ export async function searchRules(ctx: ToolContext, query: string): Promise<Sear
           source: 'rulebook',
           citation: r.document,
           content: `Legacy results for "${mapping.legacyTerm}":\n${r.text}`,
-          confidence: r.score * 0.9, // Slightly lower priority
+          confidence: (1 - r.score) * 0.9, // Convert distance to confidence, slightly lower priority
           category: 'rules',
           mappingNotice: {
             legacyTerm: mapping.legacyTerm!,
@@ -301,14 +327,14 @@ export async function searchRules(ctx: ToolContext, query: string): Promise<Sear
     limit: 5
   });
   
-  const high = rag.filter((r: any) => r.score >= 0.7);
+  const high = rag.filter((r: any) => r.score <= 0.5);
   if (high.length) {
     for (const r of high) {
       results.push({
         source: 'rulebook',
         citation: r.document,
         content: r.text,
-        confidence: r.score,
+        confidence: 1 - r.score, // Convert distance to confidence
         category: 'rules'
       });
     }
@@ -317,10 +343,7 @@ export async function searchRules(ctx: ToolContext, query: string): Promise<Sear
   
   // Low confidence - try web search with both terms if mapping was detected
   if (mapping.hasMapping && mapping.remasteredTerm) {
-    const webRemastered: any = await ctx.tools['webfetch'].search({
-      query: `site:2e.aonprd.com ${mapping.remasteredTerm}`,
-      limit: 2
-    });
+    const webRemastered = await searchAonWithKagi(mapping.remasteredTerm, ctx, 2);
     
     for (const r of webRemastered) {
       results.push({
@@ -338,10 +361,7 @@ export async function searchRules(ctx: ToolContext, query: string): Promise<Sear
     }
     
     // Also fetch legacy results
-    const webLegacy: any = await ctx.tools['webfetch'].search({
-      query: `site:2e.aonprd.com ${mapping.legacyTerm}`,
-      limit: 2
-    });
+    const webLegacy = await searchAonWithKagi(mapping.legacyTerm!, ctx, 2);
     
     for (const r of webLegacy) {
       results.push({
@@ -364,10 +384,7 @@ export async function searchRules(ctx: ToolContext, query: string): Promise<Sear
   }
   
   // Final fallback: web search with original query
-  const web: any = await ctx.tools['webfetch'].search({
-    query: `site:2e.aonprd.com ${query}`,
-    limit: 3
-  });
+  const web = await searchAonWithKagi(query, ctx, 3);
   
   for (const r of web) {
     results.push({

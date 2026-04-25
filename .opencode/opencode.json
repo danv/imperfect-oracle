@@ -19,6 +19,9 @@
         "--env-file", "/Users/dan/projects/imperfect-oracle/rag-mcp.env", 
         "rag-mcp" 
       ]
+    },
+    "kagi-search": {
+      "enabled": true
     }
   },
   "permission": {
@@ -27,6 +30,9 @@
     },
     "skill": {
       "rules-search": "allow"
+    },
+    "mcp": {
+      "kagi-search": "allow"
     }
   },
   "experimental": {

@@ -11,7 +11,9 @@ metadata:
 ## What I do
 Given a rules‑related query, I first query the local MCP RAG server (`rag-mcp-pf2e`).
 If any result has a confidence of **≥ 0.7** I return those excerpts.
-Otherwise I issue a web‑search on `https://2e.aonprd.com` for the same query and return the top 3 hits.
+Otherwise I issue a search using **Kagi** on `https://2e.aonprd.com` for the same query and return the top 3 hits.
+
+> **CRITICAL**: This skill MUST be loaded with the `skill()` tool before use. Do not manually execute the workflow described here — load the skill first, then issue the search query.
 
 ## Remaster Name Detection
 I automatically detect when you use legacy (pre-Remaster) terminology and map it to the current PF2e Remastered terms. When this happens:
@@ -41,3 +43,5 @@ An array of objects each containing:
 - `confidence` (numerical score)
 - `category` (`"rules"`)
 - `mappingNotice` (optional: `{legacyTerm, remasteredTerm, wasDetected}`)
+
+These objects should be formatted into Markdown.
