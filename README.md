@@ -8,3 +8,34 @@ git clone https://github.com/Kamalesh-Kavin/rag-mcp.git
 cd rag-mcp
 uv sync
 ```
+
+### [kagi-mcp](https://github.com/kagisearch/kagimcp)
+```bash
+git clone https://github.com/kagisearch/kagimcp.git
+```
+
+This has been added in the root `opencode` configuration, `~/.config/opencode/opencode.json`:
+```json
+{
+    // other configuration points
+    "mcp": {
+        "kagi-search": {
+            "type": "local",
+            "command": [ "uv", "--directory", "/Users/dan/projects/kagimcp", "run", "kagimcp" ],
+            "environment": {
+                "KAGI_API_KEY": "<API-KEY>"
+            },
+            "enabled": false
+        },
+    // other MCP servers
+    }
+}
+```
+
+## What's In Here
+ - `imperfect-oracle`: the primary agent for idea generation.
+ - `iomedea`: a subagent for session planning.
+ - `lamashtu`: a subagent for creature design.
+ - `search-rules`: a skill for searching for rules.
+ - `search-lore`: a skill for searching for lore.
+ 
