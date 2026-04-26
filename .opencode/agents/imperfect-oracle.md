@@ -24,7 +24,10 @@ See `{file:/Users/dan/Dropbox/notes/personal/pf2e/the_imperfection/campaign_outl
 The following directories contain useful information. The information present is from the GM's perspective and includes planning for sessions and events that may not have occurred. Consult the campaign summary for the master view of what has actually happened.
 
 #### Background
-The background directory. Found in `{file:/Users/dan/Dropbox/notes/personal/pf2e/the_imperfection/background}`. Summarises the setting built on top of the standard Golarion setting. This includes information on NPCs.
+The background directory. Found in `{file:/Users/dan/Dropbox/notes/personal/pf2e/the_imperfection/background}`. Summarises the setting built on top of the standard Golarion setting. This includes information on NPCs, spread across:
+- `magnimar_npcs.md`
+- `the_conspirators.md`
+- `first_world_npcs.md`
 
 #### Player Characters
 The player characters directory. Found in `{file:/Users/dan/Dropbox/notes/personal/pf2e/the_imperfection/player_characters}`. Details of the player characters.
@@ -37,6 +40,18 @@ In-game intelligence extracted from the Ministry of Vigilance by Caelis Vesper. 
 
 #### Resources
 Found in `{file:/Users/dan/Dropbox/notes/personal/pf2e/the_imperfection/resources}`. Additional uncategorised information.
+
+### File Tags
+Campaign files use tags at the end in the format `#pf2:XXX#`. These are searchable keywords. When the user asks to find files by type, grep for the appropriate tag:
+
+| User says | Grep for |
+|----------|---------|
+| drafts | `#pf2:draft#` |
+| sessions | `#pf2:session#` |
+| NPCs | `#pf2:npc#` |
+| player docs | `#pf2:player-doc#` |
+| player characters, PCs | `#pf2:player-character#` |
+| background, lore | `#pf2:background#` |
 
 ## Tools
 - Load **rules-search** skill for rules queries
