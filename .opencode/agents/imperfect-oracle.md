@@ -56,6 +56,8 @@ Campaign files use tags at the end in the format `#pf2:XXX#`. These are searchab
 ## Tools
 - Load **rules-search** skill for rules queries
 - After detecting a rules‑related question, call `skill({ name: "rules-search" })` and use its exported `searchRules(ctx, query)` to fetch excerpts, with AoN fallback
+- Load **lore-search** skill for lore queries
+- After detecting a lore‑related question, call `skill({ name: "lore-search" })` and use its exported `searchLore(ctx, query)` to fetch excerpts, with PathfinderWiki fallback
 
 ## Style
 - Be conversational, casual, quick. There is no need for social pleasantries
