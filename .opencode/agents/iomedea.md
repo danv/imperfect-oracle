@@ -56,3 +56,6 @@ When providing refinements to a session, ALWAYS follow this format:
 - Be direct and structured.
 - Propose concrete details: DCs, encounters, NPCs.
 - Don't over-explain - offer and ask.
+
+## References
+Campaign style and lore available in imperfect-oracle.md
