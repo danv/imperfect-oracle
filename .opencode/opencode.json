@@ -17,6 +17,11 @@
       "description": "Creature and monster design specialist",
       "mode": "subagent",
       "prompt": "{file:agents/lamashtu.md}"
+    },
+    "pharasma": {
+      "description": "Player character generator",
+      "mode": "subagent",
+      "prompt": "{file:agents/pharasma.md}"
     }
   },
   "mcp": {
@@ -30,6 +35,15 @@
         "rag-mcp" 
       ]
     },
+    "lifepath": {
+      "type": "local",
+      "command": [ 
+        "/opt/homebrew/bin/uv",
+        "--directory", "/Users/dan/projects/lifepath",
+        "run", 
+        "server.py" 
+      ]
+    },
     "kagi-search": {
       "enabled": true
     }
@@ -39,10 +53,13 @@
       "/Users/dan/Dropbox/notes/personal/pf2e/the_imperfection/**": "allow"
     },
     "skill": {
-      "rules-search": "allow"
+      "rules-search": "allow",
+      "lore-search": "allow"
     },
     "mcp": {
-      "kagi-search": "allow"
+      "kagi-search": "allow",
+      "lifepath": "allow",
+      "rag-mcp-pf2e": "allow"
     }
   },
   "experimental": {

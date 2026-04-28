@@ -15,7 +15,7 @@ git clone https://github.com/kagisearch/kagimcp.git
 ```
 
 This has been added in the root `opencode` configuration, `~/.config/opencode/opencode.json`:
-```json
+```javascript
 {
     // other configuration points
     "mcp": {
@@ -32,10 +32,14 @@ This has been added in the root `opencode` configuration, `~/.config/opencode/op
 }
 ```
 
+### [Lifepath](https://github.com/danv/lifepath)
+My own player character generator based on the _Lifepath_ system.
+
 ## What's In Here
  - `imperfect-oracle`: the primary agent for idea generation.
  - `iomedea`: a subagent for session planning.
  - `lamashtu`: a subagent for creature design.
+ - `pharasma`: a subagent that creates player characters.
  - `search-rules`: a skill for searching for rules.
  - `search-lore`: a skill for searching for lore.
  
