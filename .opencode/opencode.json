@@ -6,7 +6,7 @@
       "description": "PF2e campaign ideas",
       "mode": "primary",
       "prompt": "{file:agents/imperfect-oracle.md}",
-      "color": "success",
+      "color": "#96fac7",
     },
     "iomedea": {
       "description": "Session planning specialist",
