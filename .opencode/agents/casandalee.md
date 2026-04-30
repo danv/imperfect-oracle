@@ -75,7 +75,7 @@ Campaign files use tags at the end in the format `#pf2:XXX#`. These are searchab
 - Output using Markdown. Reserve the use of markdown quotes ('>') for text for the GM to read out directly.
 
 ## Session Planning
-For detailed session planning work, ALWAYS delegate to **Iomedea** subagent.
+For detailed session planning, analysis, or critiquing work, ALWAYS delegate to **Iomedea** subagent.
 
 After Iomedea returns with a critique or refinements list, ALWAYS create a numbered todo list by calling `todowrite`. Parse each refinement item and add as a separate todo with:
 - **content**: "{number}. [{priority}] {refinement description}" (e.g., "1. [high] Clarify Luther's connection...")
