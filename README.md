@@ -36,7 +36,7 @@ This has been added in the root `opencode` configuration, `~/.config/opencode/op
 My own player character generator based on the _Lifepath_ system.
 
 ## What's In Here
- - `imperfect-oracle`: the primary agent for idea generation.
+ - `casandalee`: the primary agent for idea generation.
  - `iomedea`: a subagent for session planning.
  - `lamashtu`: a subagent for creature design.
  - `pharasma`: a subagent that creates player characters.

@@ -2,10 +2,10 @@
   "$schema": "https://opencode.ai/config.json",
   "default_agent": "imperfect-oracle",
   "agent": {
-    "imperfect-oracle": {
+    "casandalee": {
       "description": "PF2e campaign ideas",
       "mode": "primary",
-      "prompt": "{file:agents/imperfect-oracle.md}",
+      "prompt": "{file:agents/casandalee.md}",
       "color": "#96fac7",
     },
     "iomedea": {
@@ -16,7 +16,7 @@
     "lamashtu": {
       "description": "Creature and monster design specialist",
       "mode": "subagent",
-      "prompt": "{file:agents/lamashtu.md}"
+      "prompt": "{file:agents/lamashtu.md}",
     },
     "pharasma": {
       "description": "Player character generator",
